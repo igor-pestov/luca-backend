@@ -11,8 +11,10 @@ const modelUsers = new Schema({
   quetions: {
     type: [Schema.Types.ObjectId, Array],
     ref: "User",
-    
   },
+   favorite :{ 
+     type: [Schema.Types.ObjectId, Array]
+   }
 });
 const User = model("User", modelUsers);
 

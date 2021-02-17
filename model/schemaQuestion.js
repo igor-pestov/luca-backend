@@ -1,19 +1,25 @@
-const { Schema, model } = require("mongoose")
+const { Schema, model, now } = require("mongoose")
 
 const modelQuestions = new Schema({
     title: {
         type: String,
-        // require: true
     },
     publication: {
         type: String,
-        // require: true,
     },
     comment: {
         type: Array,
     },
     author: {
         type: Schema.Types.ObjectId, ref:"User"
+    },
+    authorAvatar: {
+        type: String
+    },
+    created: {
+        type:  Date,
+        default: Date.now,
+        require: true,
     }
 })
 const Question = model("Question", modelQuestions)
